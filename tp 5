@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string ConvertirJapones(string frase);
+
+int main() {
+    string frase;
+    cout << "Ingresa un nombre: ";
+    getline(cin, frase);
+    cout <<"Konnichiwa "<< ConvertirJapones(frase) <<"-san "<<endl;
+    return 0;
+}
+
+string ConvertirJapones(string frase) {
+    string a;
+        for (int i = 0; i < frase.size(); i++) {
+        if (frase[i] != 'a' && frase[i] != 'e' && frase[i] != 'i' && frase[i] != 'o' && frase[i] != 'u'&& frase[i] != ' ') {
+            a += frase[i];
+        if (i < frase.size() + 1 && frase[i + 1] != 'a' && frase[i + 1] != 'e' && frase[i + 1] != 'i' && frase[i + 1] != 'o' && frase[i + 1] != 'u') {
+                a += 'u';
+            }
+        } 
+        else {
+            a += frase[i];
+        }
+    } 
+    return a;
+}
