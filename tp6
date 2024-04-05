@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string Invertir(string t);
+
+int main() {
+    string palabra;
+    cout << "Ingrese una palabra" << endl;
+    getline(cin, palabra);
+    cout << Invertir(palabra) << endl;
+    return 0;
+}
+
+string Invertir(string t) {
+    string complemento;
+    bool parentesis = false;
+    string valor;
+    for (int i = 0; i < t.size(); i++) {
+        if (t[i] == '(') {
+            parentesis = true;
+        } else if (t[i] == ')') {
+            parentesis = false;
+            for (int l = complemento.size() - 1; l >= 0; l--) {
+                valor += complemento[l];
+            }
+            complemento = ""; 
+        } else {
+            if (parentesis) {
+                complemento += t[i];
+            } else {
+                valor += t[i];
+            }
+        }
+    }
+    return valor;
+}
