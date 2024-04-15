@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int CantidadDeLatas(string hilera);
-int SecuenciaMasLarga(string hilera);
-int SecuenciaLargaDos(string hilera);
-int Distancia(string hilera);
+int CantidadDeLatas(string a);
+int SecuenciaMasLarga(string b);
+int SecuenciaLargaDos(string c);
+int Distancia(string d);
 
 int main()
 {
@@ -12,26 +12,26 @@ int main()
 
     cout << "Ingrese la hilera de latas (G, A, T y C):  " << endl;
     getline(cin, hilera);
-    cout << "Cantidad de latas en la hilera: " << CantidadDeLatas(hilera) << endl;
-    cout << "Secuencia mas larga de garbanzos: " << SecuenciaMasLarga(hilera) << endl;
-    cout << "Segunda secuencia mas larga de garbanzos: " << SecuenciaLargaDos(hilera) << endl;
-    cout << "La distancia mas larga es de: " << Distancia(hilera) << endl;
+    cout << "Cantidad de latas en la hilera: " << CantidadDeLatas(a) << endl;
+    cout << "Secuencia mas larga de garbanzos: " << SecuenciaMasLarga(b) << endl;
+    cout << "Segunda secuencia mas larga de garbanzos: " << SecuenciaLargaDos(c) << endl;
+    cout << "La distancia mas larga es de: " << Distancia(d) << endl;
     return 0;
 }
 
-int CantidadDeLatas(string hilera)
+int CantidadDeLatas(string a)
 {
     return hilera.size();
 }
 
-int SecuenciaMasLarga(string hilera)
+int SecuenciaMasLarga(string b)
 {
     int max = 0, secmax = 0, tercermax = 0;
     int contador = 0;
     
-    for (int i = 0; i < hilera.size(); i++)
+    for (int i = 0; i < b.size(); i++)
     {
-        if (hilera[i] == 'G')
+        if (b[i] == 'G')
         {
             contador++;
         }
@@ -43,12 +43,12 @@ int SecuenciaMasLarga(string hilera)
                 secmax = max;
                 max = contador;
             }
-            else if (contador >= secmax)
+            if (contador >= secmax)
             {
                 tercermax = secmax;
                 secmax = contador;
             }
-            else if (contador > tercermax)
+            if (contador > tercermax)
             {
                 tercermax = contador;
             }
@@ -59,25 +59,25 @@ int SecuenciaMasLarga(string hilera)
     return max;
 }
 
-int SecuenciaLargaDos(string hilera)
+int SecuenciaLargaDos(string c)
 {
     int max = 0, secmax = 0;
     int contador = 0;
     
-    for (int i = 0; i < hilera.size(); i++)
+    for (int i = 0; i < c.size(); i++)
     {
-        if (hilera[i] == 'G')
+        if (c[i] == 'G')
         {
             contador++;
         }
         else
         {
-            if (contador >= max)
+            if (c >= max)
             {
                 secmax = max;
                 max = contador;
             }
-            else if (contador > secmax && contador < max)
+            if (contador > secmax && contador < max)
             {
                 secmax = contador;
             }
@@ -87,19 +87,19 @@ int SecuenciaLargaDos(string hilera)
     return secmax;
 }
 
-int Distancia(string hilera)
+int Distancia(string d)
 {
     int distancia = 0;
-    bool primeraEncontrada = false;
+    bool primeraencontrada = false;
     
-    for (int i = 0; i < hilera.size(); i++)
+    for (int i = 0; i < d.size(); i++)
     {
-        if (hilera[i] == 'G')
+        if (d[i] == 'G')
         {
-            if (primeraEncontrada)
+            if (primeraencontrada)
                 distancia++;
             else
-                primeraEncontrada = true;
+                primeraencontrada = true;
         }
     }
     return distancia;
