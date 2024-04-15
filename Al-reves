@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string Invertir(string a, int I, int F);
+
+int main()
+{
+    int I, F;
+    string a;
+
+    cout << "Ingrese el texto: ";
+    getline(cin, a);
+
+    cout << "Ingrese el numero de inicio: ";
+    cin >> I;
+
+    cout << "Ingrese el numero final: ";
+    cin >> F;
+
+    cout << Invertir(a, I, F) << endl;
+    return 0;
+}
+
+string Invertir(string a, int I, int F)
+{
+    string textoinvertido = a;
+    string aux;
+    for (int i = I; i <= F && i < a.size(); i++)
+    {
+        aux += a[i];
+    }
+    reverse(aux.begin(), aux.end());
+    return aux;
+}
