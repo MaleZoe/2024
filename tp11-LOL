@@ -1,37 +1,30 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-string Matriz(string numeros[][100], int n, int m);
+void LlenarMatriz(string matriz[][100], int f, int c);
 
-int main(){
- int n, m;
- string numeros[100][100];
- 
- cout<<"Ingrese un numero del 1 al 100: ";
- cin>>n;
- cout<<"Ingrese un segundo numero del 1 al 100: ";
- cin>>m;
+int main() {
+    int f, c;
+    string matriz[f][c];
 
-for(int a=0;a<n;a++){
-		for(int b=0;b<m;b++){
-			cout<<"Digite un numero ["<<a<<"]["<<b<<"]: ";
-			cin>>numeros[a][b];
-		}
-	} 
-	cout<<Matriz(numeros,n,m)<<endl;
-return 0;
- }
- 
- 
- string Matriz(string numeros[][100], int n, int m){
-    string final="";
-	
-	for(int a=0;a <n;a++){
-		for(int b=0;b<m;b++){
-			final+= numeros[a][b]+" " ;
-		}
-     	final+="\n";
-	}
-return final;
-
+    cout << "Ingresa filas: ";
+    cin >> f;
+    cout << "Ingresa las columnas: ";
+    cin >> c;
+    
+    cout<<Matriz(matriz, f, c)<<endl;
+    return 0;
 }
+
+void Matriz(string matriz[][100], int f, int c) {
+    for (int i = 0; i < f; i++) {
+        for (int j = 0; j < c; j++) {
+            if (i % 2 == 0) { 
+                matriz[i][j] = "L";
+            } else { 
+                matriz[i][j] = "O";
+            }
+            cout << matriz[i][j] <<;
+        }
+        cout << endl;
+    }
