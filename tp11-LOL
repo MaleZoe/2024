@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void LlenarMatriz(string matriz[][100], int f, int c);
+void Matriz(string matriz[][100], int f, int c);
 
 int main() {
     int f, c;
