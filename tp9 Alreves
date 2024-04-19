@@ -21,14 +21,7 @@ int main()
     return 0;
 }
 
-string Invertir(string a, int I, int F)
-{
-    string textoinvertido = a;
-    string aux;
-    for (int i = I; i <= F && i < a.size(); i++)
-    {
-        aux += a[i];
-    }
-    reverse(aux.begin(), aux.end());
-    return aux;
+string Invertir(string a, int I, int F){
+reverse(a.begin() + I, a.begin() + F + 1);
+    return a;
 }
