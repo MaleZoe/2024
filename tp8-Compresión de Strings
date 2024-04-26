@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+string ComprimirString(string entrada);
+
+int main() {
+    string entrada;
+    cout << "Ingrese la cadena: ";
+    cin >> entrada;
+
+    string comprimido = ComprimirString(entrada);
+    cout << "Cadena comprimida: " << comprimido << endl;
+    return 0;
+}
+
+string ComprimirString(string entrada) {
+    string comprimido;
+    int contador = 1;
+
+    for (int i = 1; i <= entrada.length(); i++) {
+        if (i < entrada.length() && entrada[i] == entrada[i - 1]) {
+            contador++;
+        } else {
+            comprimido += entrada[i - 1];
+            if (contador > 1) {
+                comprimido += "{" + to_string(contador) + "}";
+            }
+            contador = 1;
+        }
+    }
+
+    return comprimido;
+}
