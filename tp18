@@ -15,7 +15,7 @@ using namespace std;
             void impares();
     }        
            
-    CNumber::CNumber(int_n1,int_n2,int_n3){
+    CNumber::CNumber(int _n1,int _n2,int _n3){
         n1=_n1;
         n2=_n2;
         n3=_n3;
