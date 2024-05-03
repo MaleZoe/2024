@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Cshape
+{
+	private: 
+	         int base, altura;
+	         
+	public:
+	         Cshape(int b, int a);
+			 int SetBase(int b);
+			 int SetAltura(int a);
+			 float CalcularSupTriangulo(int b, int a);
+			 float CalcularSupRectangulo(int b, int a);
+			      
+};
+
+   Cshape :: Cshape(int b, int a){
+   	base=SetBase(b);
+   	altura=SetAltura(a);
+   }
+   
+int Cshape::SetBase(int b){
+	base=b;
+	return base;
+}
+
+int Cshape::SetAltura(int a){
+	altura=a;
+	return altura;
+}
+
+float Cshape::CalcularSupTriangulo(int a, int b){
+	return a*b/2;
+}
+
+ float Cshape::CalcularSupRectangulo(int a, int b){
+ 	return a*b;
+ }
+
+int main(){
+	int a=10; int b=100;
+	float triangulo, rectangulo;
+	Cshape Formas(a,b);
+	triangulo=Formas.CalcularSupTriangulo(a,b);
+	rectangulo=Formas.CalcularSupRectangulo(a,b);
+	cout<<"sup triangulo: "<<triangulo<<endl;
+	cout<<"sup rectangulo: "<<rectangulo<<endl;
+	
+	return 0;
+}
