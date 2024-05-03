@@ -1,50 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
- class CNumber{
-    private:
-             int n1;
-             int n2; 
-             int n3;
-    public: 
-            CNumber(int, int, int);
-            void max();
-            void min();
-            void promedio();
-            void pares();
-            void impares();
-    } ;      
-           
-    CNumber::CNumber(int _n1,int _n2,int _n3){
-        n1=_n1;
-        n2=_n2;
-        n3=_n3;
-    }   
-    
- void CNumber::max() {
+class CNumber {
+private:
+    int n1;
+    int n2; 
+    int n3;
+public: 
+    CNumber(int, int, int);
+    int max();
+    int min();
+    float promedio();
+    int pares();
+    int impares();
+};      
+
+CNumber::CNumber(int _n1, int _n2, int _n3) {
+    n1 = _n1;
+    n2 = _n2;
+    n3 = _n3;
+}   
+
+int CNumber::max() {
     int maximo = n1;
     if (n2 > maximo)
         maximo = n2;
     if (n3 > maximo)
         maximo = n3;
-    cout << "El máximo de los 3 números es: " << maximo << endl;
+    return maximo;
 }
 
- void CNumber::min() {
+int CNumber::min() {
     int minimo = n1;
     if (n2 < minimo)
         minimo = n2;
     if (n3 < minimo)
         minimo = n3;
-    cout << "El mínimo de los 3 números es: " << minimo << endl;
+    return minimo;
 }
 
-void CNumber::promedio() {
+float CNumber::promedio() {
     float p = (n1 + n2 + n3) / 3;
-    cout << "El promedio de los 3 números es: " << p << endl;
+    return p;
 }
 
-void CNumber::pares() {
+int CNumber::pares() {
     int contarp = 0;
     if (n1 % 2 == 0)
         contarp++;
@@ -52,10 +52,10 @@ void CNumber::pares() {
         contarp++;
     if (n3 % 2 == 0)
         contarp++;
-    cout << "La cantidad de elementos pares es: " << contarp << endl;
+    return contarp;
 }
 
-void CNumber::impares() {
+int CNumber::impares() {
     int contari = 0;
     if (n1 % 2 != 0)
         contari++;
@@ -63,16 +63,20 @@ void CNumber::impares() {
         contari++;
     if (n3 % 2 != 0)
         contari++;
-    cout << "La cantidad de elementos impares es: " << contari << endl;
+    return contari;
 }
 
 int main() {
     CNumber numeros(3, 7, 4);
-    numeros.max();
-    numeros.min();
-    numeros.promedio();
-    numeros.pares();
-    numeros.impares();
-
+    int maximo = numeros.max();
+    int minimo = numeros.min();
+    float p = numeros.promedio();
+    int contarp = numeros.pares();
+    int contari = numeros.impares();
+    cout << "El máximo de los 3 números es: " << maximo << endl;
+    cout << "El mínimo de los 3 números es: " << minimo << endl;
+    cout << "El promedio de los 3 números es: " << p << endl;
+    cout << "La cantidad de elementos pares es: " << contarp << endl;
+    cout << "La cantidad de elementos impares es: " << contari << endl;
     return 0;
 }
