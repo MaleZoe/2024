@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Empleado {
+private:
+    string Nombre;
+    string Apellido;
+    string Domicilio;
+    int cantidadHijos;
+    float sueldoBasico;
+    int Antiguedad;
+
+    float calcularDeducciones() {
+        float jubilacion = sueldoBasico * 0.11;
+        float obraSocial = sueldoBasico * 0.03;
+        float inssjp = sueldoBasico * 0.03;
+        return jubilacion + obraSocial + inssjp;
+    }
+
+public:
+    Empleado(string n, string a, string d, int h, float s, int an);
+    void mostrarInformacion();
+    float calcularSueldoNeto();
+};
+
+Empleado::Empleado(string n, string a, string d, int h, float s, int an) {
+    Nombre = n;
+    Apellido = a;
+    Domicilio = d;
+    cantidadHijos = h;
+    sueldoBasico = s;
+    Antiguedad = an;
+}
+
+void Empleado::mostrarInformacion() {
+    cout << "Nombre: " << Nombre << " " << Apellido << endl;
+    cout << "Domicilio: " << Domicilio << endl;
+    cout << "Cantidad de hijos: " << cantidadHijos << endl;
+    cout << "Sueldo Básico: " << sueldoBasico << endl;
+    cout << "Antigüedad: " << Antiguedad << " años" << endl;
+    cout << "Sueldo Neto: " << calcularSueldoNeto() << endl;
+}
+
+float Empleado::calcularSueldoNeto() {
+    float sueldoBruto = sueldoBasico + (sueldoBasico * (0.02 * cantidadHijos)) + (sueldoBasico * (0.01 * Antiguedad));
+    float deducciones = calcularDeducciones();
+    return sueldoBruto - deducciones;
+}
+
+int main() {
+    Empleado empleado("Juan", "Rodriguez", "Calle 123", 3, 900000, 12);
+    empleado.mostrarInformacion();
+    return 0;
+}
