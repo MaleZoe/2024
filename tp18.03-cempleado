@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class CEmpleado {
+private:
+    string nombre;
+    int anoIngreso;
+    float salario;
+    string direccion;
+
+public:
+    CEmpleado(string n, int a, float s, string d);
+    void imprimirInformacion();
+    int calcularAntiguedad(int anoActual);
+    bool viveEnWallStreet();
+};
+
+CEmpleado::CEmpleado(string n, int a, float s, string d) {
+    nombre = n;
+    anoIngreso = a;
+    salario = s;
+    direccion = d;
+}
+
+void CEmpleado::imprimirInformacion() {
+    cout << "Name    Year of joining    Address" << endl;
+    cout << nombre << anoIngreso <<  direccion << endl;
+}
+
+int CEmpleado::calcularAntiguedad(int anoActual) {
+    return anoActual - anoIngreso;
+}
+
+bool CEmpleado::viveEnWallStreet() {
+    return direccion.find("WallStreet") != string::npos;
+}
+
+int main() {
+    CEmpleado empleado("Roberto", 2016, 80000, "64C-WallStreet");
+
+    empleado.imprimirInformacion();
+
+    int anoActual = 2024;
+    int antiguedad = empleado.calcularAntiguedad(anoActual);
+    cout << "Años de antiguedad: " << antiguedad << endl;
+
+    if (empleado.viveEnWallStreet()) {
+        cout << "El empleado vive en Wall Street" << endl;
+    } else {
+        cout << "El empleado no vive en Wall Street" << endl;
+    }
+
+    return 0;
+}
