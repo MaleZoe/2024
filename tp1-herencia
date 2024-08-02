@@ -1,0 +1,64 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+class Persona {
+private:
+    string nombre;
+    int edad;
+protected:
+    Persona(string _nombre, int _edad) : nombre(_nombre), edad(_edad) {}
+    void mostrarPersona() {
+        cout << "Nombre: " << nombre << endl;
+        cout << "Edad: " << edad << endl;
+    }
+};
+
+class Alumno : public Persona {
+private:
+    string codigoAlumno;
+    float notaFinal;
+public:
+    Alumno(string _nombre, int _edad, string _codigoAlumno, float _notaFinal)
+        : Persona(_nombre, _edad), codigoAlumno(_codigoAlumno), notaFinal(_notaFinal) {}
+
+    void mostrarAlumno() {
+        mostrarPersona();
+        cout << "Codigo de alumno: " << codigoAlumno << endl;
+        cout << "Nota Final: " << notaFinal << endl;
+    }
+};
+
+class Docente : public Persona {
+private:
+    string cuil;
+    string titulo;
+public:
+    Docente(string _nombre, int _edad, string _cuil, string _titulo)
+        : Persona(_nombre, _edad), cuil(_cuil), titulo(_titulo) {}
+
+    void mostrarDocente() {
+        mostrarPersona();
+        cout << "CUIL: " << cuil << endl;
+        cout << "Titulo: " << titulo << endl;
+    }
+};
+
+int main() {
+    Alumno alumno1("Silvana", 38, "9038130948", 8.7);
+    alumno1.mostrarAlumno();
+    cout << "------------------------------------------------" << endl;
+    
+    Alumno alumno2("Jeremias", 37, "19023849023", 9.9);
+    alumno2.mostrarAlumno();
+    cout << "------------------------------------------------" << endl;
+    
+    Docente docente1("Marcela", 45, "20-12345678-9", "Prof. de Programacion");
+    docente1.mostrarDocente();
+    cout << "------------------------------------------------" << endl;
+    
+    Docente docente2("Roberto", 50, "20-98765432-1", "Prof. de Matematicas");
+    docente2.mostrarDocente();
+
+    return 0;
+}
